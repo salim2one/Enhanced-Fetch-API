@@ -14,7 +14,7 @@ const httpRequest = (url, conf = {}) => {
 				let errorMessage = "";
 				//Return the rejected promise to catch it
 				return respone.json().then((error) => {
-					//Some resonse dosen't have an error message, so create one
+					//Some responses don't have an error message, so create one
 					if (!error || (error && Object.keys(error).length === 0)) {
 						errorMessage = `Error from the client side, check the status code: ${statusCode}`;
 					} else {
