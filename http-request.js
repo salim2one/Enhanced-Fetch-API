@@ -1,12 +1,12 @@
 const httpRequest = (url, conf = {}) => {
-    
 	if (conf.method && conf.method.toUpperCase() === "GET" && conf.body) {
 		//GET request can't hold a body
 		delete conf.body;
 	}
-
+	let res;
 	return fetch(url, conf)
 		.then((respone) => {
+			res = respone;
 			//If the status code represents an error state 400-500 range, don't return the data
 			if (!respone.ok) {
 				//Read the error message and the status code
